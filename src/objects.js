@@ -1,23 +1,27 @@
 const IMG_URL =
-  "https://raw.githubusercontent.com/saramff/face-recognition-reduced/refs/heads/master";
+  "https://raw.githubusercontent.com/saramff/personajes-atributos-aprendizaje-img/refs/heads/master";
 
-const MEN_BODY_URL = `${IMG_URL}/hombres-experimentales`;
-const WOMEN_BODY_URL = `${IMG_URL}/mujeres-experimentales`;
-const MEN_FACE_URL = `${IMG_URL}/caras-antiguas-hombres`;
-const WOMEN_FACE_URL = `${IMG_URL}/caras-antiguas-mujeres`;
+const MEN_URL = `${IMG_URL}/hombres-experimentales`;
+const WOMEN_URL = `${IMG_URL}/mujeres-experimentales`;
+const MEN_NO_OBJ_URL = `${IMG_URL}/hombres-experimentales/sin-objeto`;
+const WOMEN_NO_OBJ_URL = `${IMG_URL}/mujeres-experimentales/sin-objeto`;
 
 export const menDataArray = [
   {
-    bodyImg: `${MEN_BODY_URL}/man-1.jpg`,
+    objImg: `${MEN_URL}/hombre-1.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-1.png`,
+    gender: "male",
     name: "",
+    gender: "male",
     trueSentence: "tiene pan.",
     falseSentence: "",
     showFalseSentence: false,
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-2.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-2.jpg`,
+    objImg: `${MEN_URL}/hombre-2.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-2.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene una bandera.",
     falseSentence: "",
@@ -25,8 +29,9 @@ export const menDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-3.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-3.jpg`,
+    objImg: `${MEN_URL}/hombre-3.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-3.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene una pizza.",
     falseSentence: "",
@@ -34,8 +39,9 @@ export const menDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-4.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-4.jpg`,
+    objImg: `${MEN_URL}/hombre-4.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-4.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene un refresco.",
     falseSentence: "",
@@ -43,8 +49,9 @@ export const menDataArray = [
     correct_response: "",
   }, 
   {
-    bodyImg: `${MEN_BODY_URL}/man-5.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-5.jpg`,
+    objImg: `${MEN_URL}/hombre-5.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-5.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene un chaleco salvavidas.",
     falseSentence: "",
@@ -52,8 +59,9 @@ export const menDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-6.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-6.jpg`,
+    objImg: `${MEN_URL}/hombre-6.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-6.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene un pincel.",
     falseSentence: "",
@@ -61,8 +69,9 @@ export const menDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-7.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-7.jpg`,
+    objImg: `${MEN_URL}/hombre-7.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-7.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene un plátano.",
     falseSentence: "",
@@ -70,8 +79,9 @@ export const menDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-8.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-8.jpg`,
+    objImg: `${MEN_URL}/hombre-8.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-8.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene una moto.",
     falseSentence: "",
@@ -79,8 +89,9 @@ export const menDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-9.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-9.jpg`,
+    objImg: `${MEN_URL}/hombre-9.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-9.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene una manzana.",
     falseSentence: "",
@@ -88,8 +99,9 @@ export const menDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-10.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-10.jpg`,
+    objImg: `${MEN_URL}/hombre-10.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-10.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene un trofeo.",
     falseSentence: "",
@@ -97,8 +109,9 @@ export const menDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-11.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-11.jpg`,
+    objImg: `${MEN_URL}/hombre-11.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-11.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene un oso de peluche.",
     falseSentence: "",
@@ -106,8 +119,9 @@ export const menDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${MEN_BODY_URL}/man-12.jpg`,
-    faceImg: `${MEN_FACE_URL}/man-12.jpg`,
+    objImg: `${MEN_URL}/hombre-12.jpg`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-12.png`,
+    gender: "male",
     name: "",
     trueSentence: "tiene un micrófono.",
     falseSentence: "",
@@ -118,8 +132,9 @@ export const menDataArray = [
 
 export const womenDataArray = [
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-1.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-1.jpg`,
+    objImg: `${WOMEN_URL}/mujer-1.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-1.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene un perro.",
     falseSentence: "",
@@ -127,8 +142,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-2.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-2.jpg`,
+    objImg: `${WOMEN_URL}/mujer-2.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-2.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene una pelota.",
     falseSentence: "",
@@ -136,8 +152,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-3.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-3.jpg`,
+    objImg: `${WOMEN_URL}/mujer-3.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-3.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene un ordenador.",
     falseSentence: "",
@@ -145,8 +162,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-4.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-4.jpg`,
+    objImg: `${WOMEN_URL}/mujer-4.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-4.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene una maleta.",
     falseSentence: "",
@@ -154,8 +172,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-5.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-5.jpg`,
+    objImg: `${WOMEN_URL}/mujer-5.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-5.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene una vela.",
     falseSentence: "",
@@ -163,8 +182,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-6.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-6.jpg`,
+    objImg: `${WOMEN_URL}/mujer-6.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-6.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene una botella.",
     falseSentence: "",
@@ -172,8 +192,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-7.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-7.jpg`,
+    objImg: `${WOMEN_URL}/mujer-7.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-7.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene una guitarra.",
     falseSentence: "",
@@ -181,8 +202,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-8.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-8.jpg`,
+    objImg: `${WOMEN_URL}/mujer-8.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-8.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene flores.",
     falseSentence: "",
@@ -190,8 +212,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-9.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-9.jpg`,
+    objImg: `${WOMEN_URL}/mujer-9.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-9.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene una cometa.",
     falseSentence: "",
@@ -199,8 +222,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-10.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-10.jpg`,
+    objImg: `${WOMEN_URL}/mujer-10.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-10.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene palomitas.",
     falseSentence: "",
@@ -208,8 +232,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-11.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-11.jpg`,
+    objImg: `${WOMEN_URL}/mujer-11.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-11.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene una falda amarilla.",
     falseSentence: "",
@@ -217,8 +242,9 @@ export const womenDataArray = [
     correct_response: "",
   },
   {
-    bodyImg: `${WOMEN_BODY_URL}/woman-12.jpg`,
-    faceImg: `${WOMEN_FACE_URL}/woman-12.jpg`,
+    objImg: `${WOMEN_URL}/mujer-12.jpg`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-12.png`,
+    gender: "female",
     name: "",
     trueSentence: "tiene un periódico.",
     falseSentence: "",

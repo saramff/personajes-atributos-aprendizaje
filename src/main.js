@@ -11,7 +11,7 @@ import {
   falseSentences,
 } from "./objects.js";
 
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
 
 /**************************************************************************************/
 
@@ -82,61 +82,44 @@ shuffle(peopleDataArray);
 
 /**************************************************************************************/
 
-const FACES_URL =
-  "https://raw.githubusercontent.com/saramff/face-recognition-reduced/refs/heads/master";
-const IMAGES_PER_GENDER = 12;
+const NO_OBJ_URL =
+  "https://raw.githubusercontent.com/saramff/personajes-atributos-aprendizaje-img/refs/heads/master/new";
 
-// Create pictures arrays for men and women faces
-const menFaces = Array.from(
-  { length: IMAGES_PER_GENDER },
-  (_, i) => `${FACES_URL}/caras-antiguas-hombres/man-${i + 1}.jpg`
-);
-const womenFaces = Array.from(
-  { length: IMAGES_PER_GENDER },
-  (_, i) => `${FACES_URL}/caras-antiguas-mujeres/woman-${i + 1}.jpg`
-);
+const NEW_PEOPLE_TOTAL = 24;
 
-// Create new array concatenating men & women faces images
-const facesImages = [...menFaces, ...womenFaces];
-
-// Create object array for men and women faces {img, correct_response}
-const facesObj = facesImages.map((img) => {
+// Create object array for men and women without objects {img, correct_response}
+const peopleWithoutObjects = peopleDataArray.map((person) => {
   return {
-    img: img,
+    img: person.noObjImg,
     correct_response: correctKey,
   };
 });
 
-// Create pictures arrays for new faces
-const newMenFaces = Array.from(
-  { length: IMAGES_PER_GENDER },
-  (_, i) => `${FACES_URL}/caras-nuevas-hombres/image-${i + 1}.jpg`
-);
-const newWomenFaces = Array.from(
-  { length: IMAGES_PER_GENDER },
-  (_, i) => `${FACES_URL}/caras-nuevas-mujeres/image-${i + 1}.jpg`
+// Create pictures arrays for new people without objects
+const newPeopleImgs = Array.from(
+  { length: NEW_PEOPLE_TOTAL },
+  (_, i) => `${NO_OBJ_URL}/person-${i + 1}.jpg`
 );
 
-// Create new array concatenating men & women new faces images
-const newFacesImages = [...newMenFaces, ...newWomenFaces];
-
-// Create object array for men and women faces {img, correct_response}
-const newFacesObj = newFacesImages.map((img) => {
+// Create object array for NEW men and women without objects {img, correct_response}
+const newPeopleWithoutObjects = newPeopleImgs.map((img) => {
   return {
     img: img,
     correct_response: incorrectKey,
   };
 });
 
-// create new array with all faces and shuffle it
-const allFacesObj = [...facesObj, ...newFacesObj];
-shuffle(allFacesObj);
+// create new array with all people and shuffle it
+const allPeopleWithoutObj = [...peopleWithoutObjects, ...newPeopleWithoutObjects];
+shuffle(allPeopleWithoutObj);
+// shuffle(allFacesObj);
 
 /**************************************************************************************/
 
 // Get images to preload them
-const bodyImgs = peopleDataArray.map((person) => person.bodyImg);
-const allImgs = [...bodyImgs, ...facesImages, ...newFacesImages];
+const objImgs = peopleDataArray.map((person) => person.objImg);
+const noObjImgs = peopleDataArray.map((person) => person.noObjImg);
+const allImgs = [...objImgs, ...noObjImgs, ...newPeopleImgs];
 
 /**************************************************************************************/
 
@@ -175,130 +158,130 @@ timeline.push(html_block_consent);
 // // //                           Demographic  variables                   //
 // // ////////////////////////////////////////////////////////////////////////
 
-/* fullscreen */
-timeline.push({
-  type: jsPsychFullscreen,
-  fullscreen_mode: true,
-  message:
-    "<p>Por favor, haga clic para cambiar al modo de pantalla completa.</p>",
-  button_label: "Continuar",
-  on_finish: function (data) {
-    var help_fullscreen = data.success;
-    jsPsych.data.addProperties({ fullscreen: help_fullscreen });
-  },
-});
+// /* fullscreen */
+// timeline.push({
+//   type: jsPsychFullscreen,
+//   fullscreen_mode: true,
+//   message:
+//     "<p>Por favor, haga clic para cambiar al modo de pantalla completa.</p>",
+//   button_label: "Continuar",
+//   on_finish: function (data) {
+//     var help_fullscreen = data.success;
+//     jsPsych.data.addProperties({ fullscreen: help_fullscreen });
+//   },
+// });
 
-var participantName = {
-  type: jsPsychSurveyText,
-  preamble: "A continuación, le preguntaremos algunos datos.",
-  name: "participantName",
-  button_label: "Continuar",
-  questions: [
-    {
-      prompt: "<div>¿Cuál es su nombre y apellidos?<div>",
-      rows: 1,
-      columns: 2,
-      required: "true",
-    },
-  ],
-  data: {
-    type: "demo",
-    participantName: participantName,
-  },
-  on_finish: function (data) {
-    var help_participantName = data.response.Q0;
-    jsPsych.data.addProperties({ participantName: help_participantName });
-  },
-  on_load: function () {
-    document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
-  },
-};
+// var participantName = {
+//   type: jsPsychSurveyText,
+//   preamble: "A continuación, le preguntaremos algunos datos.",
+//   name: "participantName",
+//   button_label: "Continuar",
+//   questions: [
+//     {
+//       prompt: "<div>¿Cuál es su nombre y apellidos?<div>",
+//       rows: 1,
+//       columns: 2,
+//       required: "true",
+//     },
+//   ],
+//   data: {
+//     type: "demo",
+//     participantName: participantName,
+//   },
+//   on_finish: function (data) {
+//     var help_participantName = data.response.Q0;
+//     jsPsych.data.addProperties({ participantName: help_participantName });
+//   },
+//   on_load: function () {
+//     document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
+//   },
+// };
 
-timeline.push(participantName);
+// timeline.push(participantName);
 
-var centroAsociado = {
-  type: jsPsychSurveyText,
-  name: "centroAsociado",
-  button_label: "Continuar",
-  questions: [
-    {
-      prompt: "<div>¿Cuál es su centro asociado?<div>",
-      rows: 1,
-      columns: 2,
-      required: "true",
-    },
-  ],
-  data: {
-    type: "demo",
-    centroAsociado: centroAsociado,
-  },
-  on_finish: function (data) {
-    var help_centroAsociado = data.response.Q0;
-    jsPsych.data.addProperties({ centroAsociado: help_centroAsociado });
-  },
-  on_load: function () {
-    document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
-  },
-};
+// var centroAsociado = {
+//   type: jsPsychSurveyText,
+//   name: "centroAsociado",
+//   button_label: "Continuar",
+//   questions: [
+//     {
+//       prompt: "<div>¿Cuál es su centro asociado?<div>",
+//       rows: 1,
+//       columns: 2,
+//       required: "true",
+//     },
+//   ],
+//   data: {
+//     type: "demo",
+//     centroAsociado: centroAsociado,
+//   },
+//   on_finish: function (data) {
+//     var help_centroAsociado = data.response.Q0;
+//     jsPsych.data.addProperties({ centroAsociado: help_centroAsociado });
+//   },
+//   on_load: function () {
+//     document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
+//   },
+// };
 
-timeline.push(centroAsociado);
+// timeline.push(centroAsociado);
 
-var age = {
-  type: jsPsychSurveyText,
-  name: "age",
-  button_label: "Continuar",
-  questions: [
-    {
-      prompt: "<div>¿Cuántos años tiene?<div>",
-      rows: 1,
-      columns: 2,
-      required: "true",
-    },
-  ],
-  data: {
-    type: "demo",
-    age: age,
-  },
-  on_finish: function (data) {
-    var help_age = data.response.Q0;
-    jsPsych.data.addProperties({ age: help_age });
-  },
-  on_load: function () {
-    document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
-  },
-};
+// var age = {
+//   type: jsPsychSurveyText,
+//   name: "age",
+//   button_label: "Continuar",
+//   questions: [
+//     {
+//       prompt: "<div>¿Cuántos años tiene?<div>",
+//       rows: 1,
+//       columns: 2,
+//       required: "true",
+//     },
+//   ],
+//   data: {
+//     type: "demo",
+//     age: age,
+//   },
+//   on_finish: function (data) {
+//     var help_age = data.response.Q0;
+//     jsPsych.data.addProperties({ age: help_age });
+//   },
+//   on_load: function () {
+//     document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
+//   },
+// };
 
-timeline.push(age);
+// timeline.push(age);
 
-var demo2 = {
-  type: jsPsychSurveyMultiChoice,
-  questions: [
-    {
-      prompt: "Por favor, seleccione el género con el que se identifica.",
-      name: "gender",
-      options: ["masculino", "femenino", "otro", "prefiero no decirlo"],
-      required: true,
-      horizontal: true,
-    },
-    {
-      prompt: "Por favor, seleccione su lengua materna.",
-      name: "language",
-      options: ["español", "otro"],
-      required: true,
-      horizontal: true,
-    },
-  ],
-  button_label: "Continuar",
-  on_finish: function (data) {
-    var help_gender = data.response.gender;
-    var help_language = data.response.language;
-    jsPsych.data.addProperties({
-      gender: help_gender,
-      language: help_language,
-    });
-  },
-};
-timeline.push(demo2);
+// var demo2 = {
+//   type: jsPsychSurveyMultiChoice,
+//   questions: [
+//     {
+//       prompt: "Por favor, seleccione el género con el que se identifica.",
+//       name: "gender",
+//       options: ["masculino", "femenino", "otro", "prefiero no decirlo"],
+//       required: true,
+//       horizontal: true,
+//     },
+//     {
+//       prompt: "Por favor, seleccione su lengua materna.",
+//       name: "language",
+//       options: ["español", "otro"],
+//       required: true,
+//       horizontal: true,
+//     },
+//   ],
+//   button_label: "Continuar",
+//   on_finish: function (data) {
+//     var help_gender = data.response.gender;
+//     var help_language = data.response.language;
+//     jsPsych.data.addProperties({
+//       gender: help_gender,
+//       language: help_language,
+//     });
+//   },
+// };
+// timeline.push(demo2);
 
 /************************************************************************************************ */
 
@@ -347,11 +330,11 @@ let instructions = {
 timeline.push(instructions);
 
 /* Create stimuli array for image presentation */
-let bodyNameStimuli = peopleDataArray.map((person) => {
+let personStimuli = peopleDataArray.map((person) => {
   return {
     stimulus: `
-      <img class="person-img" src="${person.bodyImg}">
-      <p class="person-name">${person.name}</p>
+      <img class="person-img" src="${person.objImg}">
+      <p class="person-name">${person.gender === 'male' ? 'Este' : 'Esta'} es ${person.name}</p>
     `,
   };
 });
@@ -368,77 +351,77 @@ let test = {
 /* Test procedure: fixation + image presentation */
 let test_procedure = {
   timeline: [fixation, test],
-  timeline_variables: bodyNameStimuli,
+  timeline_variables: personStimuli,
   randomize_order: true, // Randomize image order
 };
 timeline.push(test_procedure);
 
 /**************************************************************************************/
 
-/* Instructions for recognition phase */
-let instructionsrecognition = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: `
-    <p>Ahora verá los personajes junto con una frase asociada.</p>
-    <p>Presione '${incorrectKey.toUpperCase()}', si la frase es falsa, y '${correctKey.toUpperCase()}', si la frase es verdadera.</p>
-    </p></p>
-    <p>Como en este ejemplo: si en la pantalla aparece este personaje y la frase dice 'Ana tiene un bolígrafo', presione '${incorrectKey.toUpperCase()}' (NO).</p>
-    <br />
-    <div>
-      <img src='https://raw.githubusercontent.com/saramff/people-attributes-images/refs/heads/master/Ejemplo-Ana.png'  class="img-instructions" />
-    </div>
-    <br />
-    <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
-    <p>Cuando esté preparado, pulse la barra espaciadora para empezar.</p>
-   `,
-  choices: [" "],
-  post_trial_gap: 500,
-};
-timeline.push(instructionsrecognition);
+// /* Instructions for recognition phase */
+// let instructionsrecognition = {
+//   type: jsPsychHtmlKeyboardResponse,
+//   stimulus: `
+//     <p>Ahora verá los personajes junto con una frase asociada.</p>
+//     <p>Presione '${incorrectKey.toUpperCase()}', si la frase es falsa, y '${correctKey.toUpperCase()}', si la frase es verdadera.</p>
+//     </p></p>
+//     <p>Como en este ejemplo: si en la pantalla aparece este personaje y la frase dice 'Ana tiene un bolígrafo', presione '${incorrectKey.toUpperCase()}' (NO).</p>
+//     <br />
+//     <div>
+//       <img src='https://raw.githubusercontent.com/saramff/people-attributes-images/refs/heads/master/Ejemplo-Ana.png'  class="img-instructions" />
+//     </div>
+//     <br />
+//     <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+//     <p>Cuando esté preparado, pulse la barra espaciadora para empezar.</p>
+//    `,
+//   choices: [" "],
+//   post_trial_gap: 500,
+// };
+// timeline.push(instructionsrecognition);
 
-/* Create stimuli array for object presentation */
-let testPeopleStimuli = peopleDataArray.map((person) => {
-  return {
-    stimulus: `
-      <img class="person-img" src="${person.bodyImg}">
-      <p class="person-name">${person.name} ${
-        person.showFalseSentence ? person.falseSentence : person.trueSentence
-      }</p>
-      <div class="keys">
-        <p class="${correctKey === "a" ? "left" : "right"}">SÍ</p>
-        <p class="${correctKey === "a" ? "right" : "left"}">NO</p>
-      </div>
-  `,
-    correct_response: person.correct_response,
-  };
-});
+// /* Create stimuli array for object presentation */
+// let testPeopleStimuli = peopleDataArray.map((person) => {
+//   return {
+//     stimulus: `
+//       <img class="person-img" src="${person.bodyImg}">
+//       <p class="person-name">${person.name} ${
+//         person.showFalseSentence ? person.falseSentence : person.trueSentence
+//       }</p>
+//       <div class="keys">
+//         <p class="${correctKey === "a" ? "left" : "right"}">SÍ</p>
+//         <p class="${correctKey === "a" ? "right" : "left"}">NO</p>
+//       </div>
+//   `,
+//     correct_response: person.correct_response,
+//   };
+// });
 
-/* People presentation trial */
-let testPeople = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: jsPsych.timelineVariable("stimulus"),
-  choices: ["a", "l"],
-  data: {
-    task: "response people presentation",
-    correct_response: jsPsych.timelineVariable("correct_response"),
-  },
-  on_finish: function (data) {
-    data.correct = jsPsych.pluginAPI.compareKeys(
-      data.response,
-      data.correct_response
-    );
-    data.correct_response_meaning =
-      correctKey === data.correct_response ? "YES" : "NO";
-  },
-};
+// /* People presentation trial */
+// let testPeople = {
+//   type: jsPsychHtmlKeyboardResponse,
+//   stimulus: jsPsych.timelineVariable("stimulus"),
+//   choices: ["a", "l"],
+//   data: {
+//     task: "response people presentation",
+//     correct_response: jsPsych.timelineVariable("correct_response"),
+//   },
+//   on_finish: function (data) {
+//     data.correct = jsPsych.pluginAPI.compareKeys(
+//       data.response,
+//       data.correct_response
+//     );
+//     data.correct_response_meaning =
+//       correctKey === data.correct_response ? "YES" : "NO";
+//   },
+// };
 
-/* Test procedure: fixation + object presentation */
-let test_objects_procedure = {
-  timeline: [fixation, testPeople],
-  timeline_variables: testPeopleStimuli,
-  randomize_order: true, // Randomize object order
-};
-timeline.push(test_objects_procedure);
+// /* Test procedure: fixation + object presentation */
+// let test_objects_procedure = {
+//   timeline: [fixation, testPeople],
+//   timeline_variables: testPeopleStimuli,
+//   randomize_order: true, // Randomize object order
+// };
+// timeline.push(test_objects_procedure);
 
 /**************************************************************************************/
 
@@ -462,93 +445,93 @@ let tetris = {
   `,
   post_trial_gap: 500,
   choices: "NO_KEYS", // Prevent key press
-  trial_duration: 1200000,
+  trial_duration: 1,
 };
 timeline.push(tetris);
 
 /**************************************************************************************/
 
-/* Instructions for recognition phase */
-let instructionsFaces = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: `
-    <p>Ahora realizará la siguiente tarea:</p>
-    <p>Si ha visto antes la cara del personaje, pulse la tecla '${correctKey.toUpperCase()}' (presente).</p>
-    <p>Si no ha visto antes la cara del personaje, pulse la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
-    <p>De nuevo, le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
-    <p>Pulse la barra espaciadora para comenzar.</p>
-   `,
-  choices: [" "],
-  post_trial_gap: 500,
-};
-timeline.push(instructionsFaces);
+// /* Instructions for recognition phase */
+// let instructionsFaces = {
+//   type: jsPsychHtmlKeyboardResponse,
+//   stimulus: `
+//     <p>Ahora realizará la siguiente tarea:</p>
+//     <p>Si ha visto antes la cara del personaje, pulse la tecla '${correctKey.toUpperCase()}' (presente).</p>
+//     <p>Si no ha visto antes la cara del personaje, pulse la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
+//     <p>De nuevo, le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+//     <p>Pulse la barra espaciadora para comenzar.</p>
+//    `,
+//   choices: [" "],
+//   post_trial_gap: 500,
+// };
+// timeline.push(instructionsFaces);
 
-/* Create stimuli array for object presentation */
-let testFacesStimuli = allFacesObj.map((face) => {
-  return {
-    stimulus: `
-      <img class="face-img" src="${face.img}">
-      <div class="keys">
-        <p class="${correctKey === "a" ? "left" : "right"}">PRESENTE</p>
-        <p class="${correctKey === "a" ? "right" : "left"}">NO PRESENTE</p>
-      </div>
-  `,
-    correct_response: face.correct_response,
-  };
-});
+// /* Create stimuli array for object presentation */
+// let testFacesStimuli = allFacesObj.map((face) => {
+//   return {
+//     stimulus: `
+//       <img class="face-img" src="${face.img}">
+//       <div class="keys">
+//         <p class="${correctKey === "a" ? "left" : "right"}">PRESENTE</p>
+//         <p class="${correctKey === "a" ? "right" : "left"}">NO PRESENTE</p>
+//       </div>
+//   `,
+//     correct_response: face.correct_response,
+//   };
+// });
 
-/* Faces presentation trial */
-let testFaces = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: jsPsych.timelineVariable("stimulus"),
-  choices: ["a", "l"],
-  data: {
-    task: "response faces presentation",
-    correct_response: jsPsych.timelineVariable("correct_response"),
-  },
-  on_finish: function (data) {
-    data.correct = jsPsych.pluginAPI.compareKeys(
-      data.response,
-      data.correct_response
-    );
-    data.correct_response_meaning =
-      correctKey === data.correct_response ? "YES" : "NO";
-  },
-};
+// /* Faces presentation trial */
+// let testFaces = {
+//   type: jsPsychHtmlKeyboardResponse,
+//   stimulus: jsPsych.timelineVariable("stimulus"),
+//   choices: ["a", "l"],
+//   data: {
+//     task: "response faces presentation",
+//     correct_response: jsPsych.timelineVariable("correct_response"),
+//   },
+//   on_finish: function (data) {
+//     data.correct = jsPsych.pluginAPI.compareKeys(
+//       data.response,
+//       data.correct_response
+//     );
+//     data.correct_response_meaning =
+//       correctKey === data.correct_response ? "YES" : "NO";
+//   },
+// };
 
-/* Test procedure: fixation + object presentation */
-let testFacesProcedure = {
-  timeline: [fixation, testFaces],
-  timeline_variables: testFacesStimuli,
-  randomize_order: true, // Randomize object order
-};
-timeline.push(testFacesProcedure);
+// /* Test procedure: fixation + object presentation */
+// let testFacesProcedure = {
+//   timeline: [fixation, testFaces],
+//   timeline_variables: testFacesStimuli,
+//   randomize_order: true, // Randomize object order
+// };
+// timeline.push(testFacesProcedure);
 
 /**************************************************************************************/
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_API_KEY
-);
+// const supabase = createClient(
+//   import.meta.env.VITE_SUPABASE_URL,
+//   import.meta.env.VITE_SUPABASE_API_KEY
+// );
 
-const TABLE_NAME = "experimento-personajes-reduced";
+// const TABLE_NAME = "experimento-personajes-reduced";
 
-async function saveData(data) {
-  console.log(data);
-  const { error } = await supabase.from(TABLE_NAME).insert({ data });
+// async function saveData(data) {
+//   console.log(data);
+//   const { error } = await supabase.from(TABLE_NAME).insert({ data });
 
-  return { error };
-}
+//   return { error };
+// }
 
-const saveDataBlock = {
-  type: jsPsychCallFunction,
-  func: function() {
-    saveData(jsPsych.data.get())
-  },
-  timing_post_trial: 200
-}
+// const saveDataBlock = {
+//   type: jsPsychCallFunction,
+//   func: function() {
+//     saveData(jsPsych.data.get())
+//   },
+//   timing_post_trial: 200
+// }
 
-timeline.push(saveDataBlock);
+// timeline.push(saveDataBlock);
 
 // /**************************************************************************************/
 
