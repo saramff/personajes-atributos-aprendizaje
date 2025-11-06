@@ -112,7 +112,6 @@ const newPeopleWithoutObjects = newPeopleImgs.map((img) => {
 // create new array with all people and shuffle it
 const allPeopleWithoutObj = [...peopleWithoutObjects, ...newPeopleWithoutObjects];
 shuffle(allPeopleWithoutObj);
-// shuffle(allFacesObj);
 
 /**************************************************************************************/
 
@@ -464,70 +463,71 @@ timeline.push(welcome);
 
 /**************************************************************************************/
 
-/* Instructions for recognition phase */
-let instructionsVerification = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: `
-    <p>Ahora verá los personajes junto con una frase asociada.</p>
-    <p>Presione '${incorrectKey.toUpperCase()}', si la frase es falsa, y '${correctKey.toUpperCase()}', si la frase es verdadera.</p>
-    </p></p>
-    <p>Como en este ejemplo: si en la pantalla aparece este personaje y la frase dice 'Ana tiene un bolígrafo', presione '${incorrectKey.toUpperCase()}' (NO).</p>
-    <br />
-    <div>
-      <img src='https://raw.githubusercontent.com/saramff/people-attributes-images/refs/heads/master/Ejemplo-Ana.png'  class="img-instructions" />
-    </div>
-    <br />
-    <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
-    <p>Cuando esté preparado, pulse la barra espaciadora para empezar.</p>
-   `,
-  choices: [" "],
-  post_trial_gap: 500,
-};
-timeline.push(instructionsVerification);
+// /* Instructions for recognition phase */
+// let instructionsVerification = {
+//   type: jsPsychHtmlKeyboardResponse,
+//   stimulus: `
+//     <p>Ahora verá los personajes junto con una frase asociada.</p>
+//     <p>Presione '${incorrectKey.toUpperCase()}', si la frase es falsa, y '${correctKey.toUpperCase()}', si la frase es verdadera.</p>
+//     </p></p>
+//     <p>Como en este ejemplo: si en la pantalla aparece este personaje y la frase dice 'Ana tiene un bolígrafo', presione '${incorrectKey.toUpperCase()}' (NO).</p>
+//     <br />
+//     <div>
+//       <img src='https://raw.githubusercontent.com/saramff/people-attributes-images/refs/heads/master/Ejemplo-Ana.png'  class="img-instructions" />
+//     </div>
+//     <br />
+//     <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+//     <p>Cuando esté preparado, pulse la barra espaciadora para empezar.</p>
+//    `,
+//   choices: [" "],
+//   post_trial_gap: 500,
+// };
+// timeline.push(instructionsVerification);
 
-/* Create stimuli array for verification */
-let verificationStimuli = peopleDataArray.map((person) => {
-  return {
-    stimulus: `
-      <img class="person-img" src="${person.noObjImg}">
-      <p class="person-name">${person.name} ${
-        person.showFalseSentence ? person.falseSentence : person.trueSentence
-      }</p>
-      <div class="keys">
-        <p class="${correctKey === "a" ? "left" : "right"}">SÍ</p>
-        <p class="${correctKey === "a" ? "right" : "left"}">NO</p>
-      </div>
-  `,
-    correct_response: person.correct_response,
-  };
-});
+// /* Create stimuli array for verification */
+// let verificationStimuli = peopleDataArray.map((person) => {
+//   return {
+//     stimulus: `
+//       <img class="person-img" src="${person.noObjImg}">
+//       <p class="person-name">${person.name} ${
+//         person.showFalseSentence ? person.falseSentence : person.trueSentence
+//       }</p>
+//       <div class="keys">
+//         <p class="${correctKey === "a" ? "left" : "right"}">SÍ</p>
+//         <p class="${correctKey === "a" ? "right" : "left"}">NO</p>
+//       </div>
+//   `,
+//     correct_response: person.correct_response,
+//   };
+// });
 
-/* Verification trial */
-let testVerification = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: jsPsych.timelineVariable("stimulus"),
-  choices: ["a", "l"],
-  data: {
-    task: "response verification",
-    correct_response: jsPsych.timelineVariable("correct_response"),
-  },
-  on_finish: function (data) {
-    data.correct = jsPsych.pluginAPI.compareKeys(
-      data.response,
-      data.correct_response
-    );
-    data.correct_response_meaning =
-      correctKey === data.correct_response ? "YES" : "NO";
-  },
-};
+// /* Verification trial */
+// let testVerification = {
+//   type: jsPsychHtmlKeyboardResponse,
+//   stimulus: jsPsych.timelineVariable("stimulus"),
+//   choices: ["a", "l"],
+//   data: {
+//     task: "response verification",
+//     correct_response: jsPsych.timelineVariable("correct_response"),
+//   },
+//   on_finish: function (data) {
+//     data.correct = jsPsych.pluginAPI.compareKeys(
+//       data.response,
+//       data.correct_response
+//     );
+//     data.correct_response_meaning =
+//       correctKey === data.correct_response ? "YES" : "NO";
+//   },
+// };
 
-/* Test procedure: fixation + verification */
-let verificationProcedure = {
-  timeline: [fixation, testVerification],
-  timeline_variables: verificationStimuli,
-  randomize_order: true, // Randomize object order
-};
-timeline.push(verificationProcedure);
+// /* Test procedure: fixation + verification */
+// let verificationProcedure = {
+//   timeline: [fixation, testVerification],
+//   timeline_variables: verificationStimuli,
+//   randomize_order: true, // Randomize object order
+// };
+// timeline.push(verificationProcedure);
+
 
 /**************************************************************************************/
 
@@ -557,61 +557,61 @@ timeline.push(tetris);
 
 /**************************************************************************************/
 
-// /* Instructions for recognition phase */
-// let instructionsFaces = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: `
-//     <p>Ahora realizará la siguiente tarea:</p>
-//     <p>Si ha visto antes la cara del personaje, pulse la tecla '${correctKey.toUpperCase()}' (presente).</p>
-//     <p>Si no ha visto antes la cara del personaje, pulse la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
-//     <p>De nuevo, le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
-//     <p>Pulse la barra espaciadora para comenzar.</p>
-//    `,
-//   choices: [" "],
-//   post_trial_gap: 500,
-// };
-// timeline.push(instructionsFaces);
+/* Instructions for recognition phase */
+let instructionsRecognition = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+    <p>Ahora realizará la siguiente tarea:</p>
+    <p>Si ha visto antes la cara del personaje, pulse la tecla '${correctKey.toUpperCase()}' (presente).</p>
+    <p>Si no ha visto antes la cara del personaje, pulse la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
+    <p>De nuevo, le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+    <p>Pulse la barra espaciadora para comenzar.</p>
+   `,
+  choices: [" "],
+  post_trial_gap: 500,
+};
+timeline.push(instructionsRecognition);
 
-// /* Create stimuli array for object presentation */
-// let testFacesStimuli = allFacesObj.map((face) => {
-//   return {
-//     stimulus: `
-//       <img class="face-img" src="${face.img}">
-//       <div class="keys">
-//         <p class="${correctKey === "a" ? "left" : "right"}">PRESENTE</p>
-//         <p class="${correctKey === "a" ? "right" : "left"}">NO PRESENTE</p>
-//       </div>
-//   `,
-//     correct_response: face.correct_response,
-//   };
-// });
+/* Create stimuli array for people without objects */
+let testRecognitionStimuli = allPeopleWithoutObj.map((person) => {
+  return {
+    stimulus: `
+      <img class="face-img" src="${person.img}">
+      <div class="keys">
+        <p class="${correctKey === "a" ? "left" : "right"}">PRESENTE</p>
+        <p class="${correctKey === "a" ? "right" : "left"}">NO PRESENTE</p>
+      </div>
+  `,
+    correct_response: person.correct_response,
+  };
+});
 
-// /* Faces presentation trial */
-// let testFaces = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: jsPsych.timelineVariable("stimulus"),
-//   choices: ["a", "l"],
-//   data: {
-//     task: "response faces presentation",
-//     correct_response: jsPsych.timelineVariable("correct_response"),
-//   },
-//   on_finish: function (data) {
-//     data.correct = jsPsych.pluginAPI.compareKeys(
-//       data.response,
-//       data.correct_response
-//     );
-//     data.correct_response_meaning =
-//       correctKey === data.correct_response ? "YES" : "NO";
-//   },
-// };
+/* Recognition trial */
+let testRecognition = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: jsPsych.timelineVariable("stimulus"),
+  choices: ["a", "l"],
+  data: {
+    task: "recognition response",
+    correct_response: jsPsych.timelineVariable("correct_response"),
+  },
+  on_finish: function (data) {
+    data.correct = jsPsych.pluginAPI.compareKeys(
+      data.response,
+      data.correct_response
+    );
+    data.correct_response_meaning =
+      correctKey === data.correct_response ? "YES" : "NO";
+  },
+};
 
-// /* Test procedure: fixation + object presentation */
-// let testFacesProcedure = {
-//   timeline: [fixation, testFaces],
-//   timeline_variables: testFacesStimuli,
-//   randomize_order: true, // Randomize object order
-// };
-// timeline.push(testFacesProcedure);
+/* Test procedure: fixation + object presentation */
+let testRecognitionProcedure = {
+  timeline: [fixation, testRecognition],
+  timeline_variables: testRecognitionStimuli,
+  randomize_order: true, // Randomize object order
+};
+timeline.push(testRecognitionProcedure);
 
 /**************************************************************************************/
 
