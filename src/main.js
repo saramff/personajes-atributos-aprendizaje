@@ -11,7 +11,7 @@ import {
   falseSentences,
 } from "./objects.js";
 
-// import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
 /**************************************************************************************/
 
@@ -138,7 +138,7 @@ let check_consent = (elem) => {
     return true;
   } else {
     alert(
-      "Muchas gracias por su interés en nuestro experimento. Si está listo para participar, por favor, dénos su consentimiento."
+      "Muchas gracias por tu interés en nuestro experimento. Si estás listo para participar, por favor, danos tu consentimiento."
     );
     return false;
   }
@@ -153,134 +153,134 @@ let html_block_consent = {
 };
 timeline.push(html_block_consent);
 
-// // ////////////////////////////////////////////////////////////////////////
-// // //                           Demographic  variables                   //
-// // ////////////////////////////////////////////////////////////////////////
+ // ////////////////////////////////////////////////////////////////////////
+ // //                           Demographic  variables                   //
+ // ////////////////////////////////////////////////////////////////////////
 
-// /* fullscreen */
-// timeline.push({
-//   type: jsPsychFullscreen,
-//   fullscreen_mode: true,
-//   message:
-//     "<p>Por favor, haga clic para cambiar al modo de pantalla completa.</p>",
-//   button_label: "Continuar",
-//   on_finish: function (data) {
-//     var help_fullscreen = data.success;
-//     jsPsych.data.addProperties({ fullscreen: help_fullscreen });
-//   },
-// });
+/* fullscreen */
+timeline.push({
+  type: jsPsychFullscreen,
+  fullscreen_mode: true,
+  message:
+    "<p>Por favor, haz clic para cambiar al modo de pantalla completa.</p>",
+  button_label: "Continuar",
+  on_finish: function (data) {
+    var help_fullscreen = data.success;
+    jsPsych.data.addProperties({ fullscreen: help_fullscreen });
+  },
+});
 
-// var participantName = {
-//   type: jsPsychSurveyText,
-//   preamble: "A continuación, le preguntaremos algunos datos.",
-//   name: "participantName",
-//   button_label: "Continuar",
-//   questions: [
-//     {
-//       prompt: "<div>¿Cuál es su nombre y apellidos?<div>",
-//       rows: 1,
-//       columns: 2,
-//       required: "true",
-//     },
-//   ],
-//   data: {
-//     type: "demo",
-//     participantName: participantName,
-//   },
-//   on_finish: function (data) {
-//     var help_participantName = data.response.Q0;
-//     jsPsych.data.addProperties({ participantName: help_participantName });
-//   },
-//   on_load: function () {
-//     document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
-//   },
-// };
+var participantName = {
+  type: jsPsychSurveyText,
+  preamble: "A continuación, te preguntaremos algunos datos.",
+  name: "participantName",
+  button_label: "Continuar",
+  questions: [
+    {
+      prompt: "<div>¿Cuál es tu nombre y apellidos?<div>",
+      rows: 1,
+      columns: 2,
+      required: "true",
+    },
+  ],
+  data: {
+    type: "demo",
+    participantName: participantName,
+  },
+  on_finish: function (data) {
+    var help_participantName = data.response.Q0;
+    jsPsych.data.addProperties({ participantName: help_participantName });
+  },
+  on_load: function () {
+    document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
+  },
+};
 
-// timeline.push(participantName);
+timeline.push(participantName);
 
-// var centroAsociado = {
-//   type: jsPsychSurveyText,
-//   name: "centroAsociado",
-//   button_label: "Continuar",
-//   questions: [
-//     {
-//       prompt: "<div>¿Cuál es su centro asociado?<div>",
-//       rows: 1,
-//       columns: 2,
-//       required: "true",
-//     },
-//   ],
-//   data: {
-//     type: "demo",
-//     centroAsociado: centroAsociado,
-//   },
-//   on_finish: function (data) {
-//     var help_centroAsociado = data.response.Q0;
-//     jsPsych.data.addProperties({ centroAsociado: help_centroAsociado });
-//   },
-//   on_load: function () {
-//     document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
-//   },
-// };
+var centroAsociado = {
+  type: jsPsychSurveyText,
+  name: "centroAsociado",
+  button_label: "Continuar",
+  questions: [
+    {
+      prompt: "<div>¿Cuál es tu centro asociado?<div>",
+      rows: 1,
+      columns: 2,
+      required: "true",
+    },
+  ],
+  data: {
+    type: "demo",
+    centroAsociado: centroAsociado,
+  },
+  on_finish: function (data) {
+    var help_centroAsociado = data.response.Q0;
+    jsPsych.data.addProperties({ centroAsociado: help_centroAsociado });
+  },
+  on_load: function () {
+    document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
+  },
+};
 
-// timeline.push(centroAsociado);
+timeline.push(centroAsociado);
 
-// var age = {
-//   type: jsPsychSurveyText,
-//   name: "age",
-//   button_label: "Continuar",
-//   questions: [
-//     {
-//       prompt: "<div>¿Cuántos años tiene?<div>",
-//       rows: 1,
-//       columns: 2,
-//       required: "true",
-//     },
-//   ],
-//   data: {
-//     type: "demo",
-//     age: age,
-//   },
-//   on_finish: function (data) {
-//     var help_age = data.response.Q0;
-//     jsPsych.data.addProperties({ age: help_age });
-//   },
-//   on_load: function () {
-//     document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
-//   },
-// };
+var age = {
+  type: jsPsychSurveyText,
+  name: "age",
+  button_label: "Continuar",
+  questions: [
+    {
+      prompt: "<div>¿Cuántos años tienes?<div>",
+      rows: 1,
+      columns: 2,
+      required: "true",
+    },
+  ],
+  data: {
+    type: "demo",
+    age: age,
+  },
+  on_finish: function (data) {
+    var help_age = data.response.Q0;
+    jsPsych.data.addProperties({ age: help_age });
+  },
+  on_load: function () {
+    document.querySelector(".jspsych-btn").style.marginTop = "20px"; // Adjust margin as needed
+  },
+};
 
-// timeline.push(age);
+timeline.push(age);
 
-// var demo2 = {
-//   type: jsPsychSurveyMultiChoice,
-//   questions: [
-//     {
-//       prompt: "Por favor, seleccione el género con el que se identifica.",
-//       name: "gender",
-//       options: ["masculino", "femenino", "otro", "prefiero no decirlo"],
-//       required: true,
-//       horizontal: true,
-//     },
-//     {
-//       prompt: "Por favor, seleccione su lengua materna.",
-//       name: "language",
-//       options: ["español", "otro"],
-//       required: true,
-//       horizontal: true,
-//     },
-//   ],
-//   button_label: "Continuar",
-//   on_finish: function (data) {
-//     var help_gender = data.response.gender;
-//     var help_language = data.response.language;
-//     jsPsych.data.addProperties({
-//       gender: help_gender,
-//       language: help_language,
-//     });
-//   },
-// };
-// timeline.push(demo2);
+var demo2 = {
+  type: jsPsychSurveyMultiChoice,
+  questions: [
+    {
+      prompt: "Por favor, selecciona el género con el que te identificas.",
+      name: "gender",
+      options: ["masculino", "femenino", "otro", "prefiero no decirlo"],
+      required: true,
+      horizontal: true,
+    },
+    {
+      prompt: "Por favor, selecciona tu lengua materna.",
+      name: "language",
+      options: ["español", "otro"],
+      required: true,
+      horizontal: true,
+    },
+  ],
+  button_label: "Continuar",
+  on_finish: function (data) {
+    var help_gender = data.response.gender;
+    var help_language = data.response.language;
+    jsPsych.data.addProperties({
+      gender: help_gender,
+      language: help_language,
+    });
+  },
+};
+timeline.push(demo2);
 
 /************************************************************************************************ */
 
@@ -306,7 +306,7 @@ let fixation = {
 let welcome = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "Bienvenido al experimento. <br /> </p></p> Pulse la barra espaciadora para comenzar.",
+    "Bienvenido al experimento. <br /> </p></p> Pulsa la barra espaciadora para comenzar.",
   choices: [" "],
 };
 timeline.push(welcome);
@@ -314,219 +314,215 @@ timeline.push(welcome);
 
 /**************************************************************************************/
 
-// /* Instructions trial */
-// let instructions = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: `
-//     <p>En este experimento se mostrarán automáticamente diferentes personajes uno tras otro.</p>  
-//     <p>Por favor, preste mucha atención a la apariencia de cada personaje y al nombre que lo acompaña.</p>
-//     <p>Fíjate en todos los detalles.</p>
-//     <p>Los personajes aparecerán automáticamente y no necesita hacer nada más que estar atento.</p>
-//     <p>Cuando esté preparado, pulse la barra espaciadora para empezar.</p>
-//   `,
-//   choices: [" "],
-//   post_trial_gap: 500,
-// };
-// timeline.push(instructions);
+/* Instructions trial */
+let instructions = {
+type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+     <p>En este experimento se mostrarán automáticamente diferentes personajes uno tras otro.</p>  
+     <p>Por favor, presta mucha atención a la apariencia de cada personaje y al nombre que lo acompaña.</p>
+     <p>Fíjate en todos los detalles.</p>
+     <p>Los personajes aparecerán automáticamente y no necesitas hacer nada más que estar atento.</p>
+     <p>Cuando estés preparado, pulsa la barra espaciadora para empezar.</p>
+   `,
+   choices: [" "],
+   post_trial_gap: 500,
+ };
+ timeline.push(instructions);
 
-// /* Create stimuli array for image presentation */
-// let personStimuli = peopleDataArray.map((person) => {
-//   return {
-//     stimulus: `
-//       <img class="person-img" src="${person.objImg}">
-//       <p class="person-name">${person.gender === 'male' ? 'Este' : 'Esta'} es ${person.name}</p>
-//     `,
-//   };
-// });
+ /* Create stimuli array for image presentation */
+ let personStimuli = peopleDataArray.map((person) => {
+   return {
+     stimulus: `
+       <img class="person-img" src="${person.objImg}">
+       <p class="person-name">${person.gender === 'male' ? 'Este' : 'Esta'} es ${person.name}.</p>
+     `,
+   };
+ });
 
-// /* Image presentation trial */
-// let test = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: jsPsych.timelineVariable("stimulus"),
-//   choices: "NO_KEYS", // Prevent key press
-//   trial_duration: 1000, // Display each image for 1 second
-//   post_trial_gap: 500,
-// };
+ /* Image presentation trial */
+ let test = {
+   type: jsPsychHtmlKeyboardResponse,
+   stimulus: jsPsych.timelineVariable("stimulus"),
+   choices: "NO_KEYS", // Prevent key press
+   trial_duration: 5000, // Display each image for 5 second
+   post_trial_gap: 1000,
+ };
 
-// /* Test procedure: fixation + image presentation */
-// let test_procedure = {
-//   timeline: [fixation, test],
-//   timeline_variables: personStimuli,
-//   randomize_order: true, // Randomize image order
-// };
-// timeline.push(test_procedure);
+ /* Test procedure: fixation + image presentation */
+ let test_procedure = {
+   timeline: [fixation, test],
+   timeline_variables: personStimuli,
+   randomize_order: true, // Randomize image order
+ };
+ timeline.push(test_procedure);
 
 
-// /**************************************************************************************/
+ /**************************************************************************************/
 
-// /* Instructions trial */
-// let instructionsAttractive = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: `
-//     <p>En este experimento se mostrarán automáticamente diferentes personajes uno tras otro.</p>  
-//     <p>Por favor, preste mucha atención a la apariencia de cada personaje y al nombre que lo acompaña.</p>
-//     <p>Fíjate en todos los detalles.</p>
-//     <p>Los personajes aparecerán automáticamente y no necesita hacer nada más que estar atento.</p>
-//     <p>Cuando esté preparado, pulse la barra espaciadora para empezar.</p>
-//   `,
-//   choices: [" "],
-//   post_trial_gap: 500,
-// };
-// timeline.push(instructionsAttractive);
+ /* Instructions trial */
+ let instructionsAttractive = {
+   type: jsPsychHtmlKeyboardResponse,
+   stimulus: `
+     <p>En esta tarea volverás a ver los mismos personajes.</p>  
+     <p>Esta vez, deberás decirnos cómo de atractivo te parece cada uno.</p>
+     <p>Para ello, responderás usando el ratón del ordenador dándole a cada personaje una puntuación del 1 al 5.</p>
+     <p>Fíjate en todos los detalles.</p>
+     <p>Cuando estés preparado, pulsa la barra espaciadora para empezar.</p>
+   `,
+   choices: [" "],
+   post_trial_gap: 500,
+ };
+ timeline.push(instructionsAttractive);
+
+ /* Create timeline variables for each person */
+ let attractiveStimuli = peopleDataArray.map((person) => {
+   return {
+     preamble: `
+       <img class="person-img" src="${person.objImg}">
+       <p class="person-name">¿Cuánto de ${person.gender === 'male' ? 'atractivo' : 'atractiva'} es ${person.name}?</p>
+     `,
+     prompt: "Siendo 1 NADA y 5 TOTALMENTE",
+     name: person.name
+   };
+ });
+
+ /* Trial definition */
+ var trialAttractive = {
+   type: jsPsychSurveyLikert,
+   preamble: jsPsych.timelineVariable("preamble"),
+   questions: [
+     {
+       prompt: jsPsych.timelineVariable("prompt"),
+       name: jsPsych.timelineVariable("name"),
+       labels: ["1", "2", "3", "4", "5"],
+       required: true
+     }
+   ]
+ };
+
+ /* Test Attractive: image presentation + question */
+ let testAttractive = {
+   timeline: [trialAttractive],
+   timeline_variables: attractiveStimuli,
+   randomize_order: true
+ };
+ timeline.push(testAttractive);
+
+
+/**************************************************************************************/
+/* Instructions trial */
+ let instructionsConfidence = {
+   type: jsPsychHtmlKeyboardResponse,
+   stimulus: `
+     <p>Ahora, de nuevo volverás a ver los mismos personajes.</p>  
+     <p>Esta vez, deberás decirnos cuánta confianza te da cada uno.</p>
+     <p>Para ello, responderás usando el ratón del ordenador dándole a cada personaje una puntuación del 1 al 5.</p>
+     <p>Fíjate en todos los detalles.</p>
+     <p>Cuando estés preparado, pulsa la barra espaciadora para empezar.</p>
+   `,
+   choices: [" "],
+   post_trial_gap: 500,
+ };
+ timeline.push(instructionsConfidence);
 
 // /* Create timeline variables for each person */
-// let attractiveStimuli = peopleDataArray.map((person) => {
-//   return {
-//     preamble: `
-//       <img class="person-img" src="${person.objImg}">
-//       <p class="person-name">¿Cuánto de ${person.gender === 'male' ? 'atractivo' : 'atractiva'} es ${person.name}?</p>
-//     `,
-//     prompt: "Siendo 1 NADA y 5 TOTALMENTE",
-//     name: person.name
-//   };
-// });
+ let confidenceStimuli = peopleDataArray.map((person) => {
+   return {
+     preamble: `
+       <img class="person-img" src="${person.objImg}">
+       <p class="person-name">¿Cuánta confianza te da ${person.name}?</p>
+     `,
+     prompt: "Siendo 1 NADA y 5 TOTALMENTE",
+     name: person.name
+   };
+ });
 
-// /* Trial definition */
-// var trialAttractive = {
-//   type: jsPsychSurveyLikert,
-//   preamble: jsPsych.timelineVariable("preamble"),
-//   questions: [
-//     {
-//       prompt: jsPsych.timelineVariable("prompt"),
-//       name: jsPsych.timelineVariable("name"),
-//       labels: ["1", "2", "3", "4", "5"],
-//       required: true
-//     }
-//   ]
-// };
+ /* Trial definition */
+ var trialConfidence = {
+   type: jsPsychSurveyLikert,
+   preamble: jsPsych.timelineVariable("preamble"),
+   questions: [
+     {
+       prompt: jsPsych.timelineVariable("prompt"),
+       name: jsPsych.timelineVariable("name"),
+       labels: ["1", "2", "3", "4", "5"],
+       required: true
+     }
+   ]
+ };
 
-// /* Test Attractive: image presentation + question */
-// let testAttractive = {
-//   timeline: [trialAttractive],
-//   timeline_variables: attractiveStimuli,
-//   randomize_order: true
-// };
-// timeline.push(testAttractive);
-
-
-// /**************************************************************************************/
-
-// /* Instructions trial */
-// let instructionsConfidence = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: `
-//     <p>En este experimento se mostrarán automáticamente diferentes personajes uno tras otro.</p>  
-//     <p>Por favor, preste mucha atención a la apariencia de cada personaje y al nombre que lo acompaña.</p>
-//     <p>Fíjate en todos los detalles.</p>
-//     <p>Los personajes aparecerán automáticamente y no necesita hacer nada más que estar atento.</p>
-//     <p>Cuando esté preparado, pulse la barra espaciadora para empezar.</p>
-//   `,
-//   choices: [" "],
-//   post_trial_gap: 500,
-// };
-// timeline.push(instructionsConfidence);
-
-// /* Create timeline variables for each person */
-// let confidenceStimuli = peopleDataArray.map((person) => {
-//   return {
-//     preamble: `
-//       <img class="person-img" src="${person.objImg}">
-//       <p class="person-name">¿Cuánta confianza te da ${person.name}?</p>
-//     `,
-//     prompt: "Siendo 1 NADA y 5 TOTALMENTE",
-//     name: person.name
-//   };
-// });
-
-// /* Trial definition */
-// var trialConfidence = {
-//   type: jsPsychSurveyLikert,
-//   preamble: jsPsych.timelineVariable("preamble"),
-//   questions: [
-//     {
-//       prompt: jsPsych.timelineVariable("prompt"),
-//       name: jsPsych.timelineVariable("name"),
-//       labels: ["1", "2", "3", "4", "5"],
-//       required: true
-//     }
-//   ]
-// };
-
-// /* Test Confidence: image presentation + question */
-// let testConfidence = {
-//   timeline: [trialConfidence],
-//   timeline_variables: confidenceStimuli,
-//   randomize_order: true
-// };
-// timeline.push(testConfidence);
+ /* Test Confidence: image presentation + question */
+ let testConfidence = {
+   timeline: [trialConfidence],
+   timeline_variables: confidenceStimuli,
+   randomize_order: true
+ };
+ timeline.push(testConfidence);
 
 
 /**************************************************************************************/
 
-// /* Instructions for recognition phase */
-// let instructionsVerification = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: `
-//     <p>Ahora verá los personajes junto con una frase asociada.</p>
-//     <p>Presione '${incorrectKey.toUpperCase()}', si la frase es falsa, y '${correctKey.toUpperCase()}', si la frase es verdadera.</p>
-//     </p></p>
-//     <p>Como en este ejemplo: si en la pantalla aparece este personaje y la frase dice 'Ana tiene un bolígrafo', presione '${incorrectKey.toUpperCase()}' (NO).</p>
-//     <br />
-//     <div>
-//       <img src='https://raw.githubusercontent.com/saramff/people-attributes-images/refs/heads/master/Ejemplo-Ana.png'  class="img-instructions" />
-//     </div>
-//     <br />
-//     <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
-//     <p>Cuando esté preparado, pulse la barra espaciadora para empezar.</p>
-//    `,
-//   choices: [" "],
-//   post_trial_gap: 500,
-// };
-// timeline.push(instructionsVerification);
+ /* Instructions for recognition phase */
+ let instructionsVerification = {
+   type: jsPsychHtmlKeyboardResponse,
+   stimulus: `
+     <p>Ahora, en esta tarea verás los personajes junto con una frase asociada.</p>
+     <p>Presiona '${incorrectKey.toUpperCase()}', si la frase es falsa, y '${correctKey.toUpperCase()}', si la frase es verdadera.</p>
+     </p></p>
+     <p>Vas a tener que recordar características de los personajes que has visto previamente.</p>
+     <p>Por ejemplo, si en la pantalla aparece la imagen de Margarita y la frase dice 'Margarita tenía un bolígrafo', debes recordar si ese personaje SÍ tenía un bolígrafo o NO lo tenía.</p>
+     </p></p>
+     <p>Te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+     <p>Cuando estés preparado, pulsa la barra espaciadora para empezar.</p>
+    `,
+   choices: [" "],
+   post_trial_gap: 500,
+ };
+ timeline.push(instructionsVerification);
 
-// /* Create stimuli array for verification */
-// let verificationStimuli = peopleDataArray.map((person) => {
-//   return {
-//     stimulus: `
-//       <img class="person-img" src="${person.noObjImg}">
-//       <p class="person-name">${person.name} ${
-//         person.showFalseSentence ? person.falseSentence : person.trueSentence
-//       }</p>
-//       <div class="keys">
-//         <p class="${correctKey === "a" ? "left" : "right"}">SÍ</p>
-//         <p class="${correctKey === "a" ? "right" : "left"}">NO</p>
-//       </div>
-//   `,
-//     correct_response: person.correct_response,
-//   };
-// });
+ /* Create stimuli array for verification */
+ let verificationStimuli = peopleDataArray.map((person) => {
+   return {
+     stimulus: `
+       <img class="person-img" src="${person.noObjImg}">
+       <p class="person-name">${person.name} ${
+         person.showFalseSentence ? person.falseSentence : person.trueSentence
+       }</p>
+       <div class="keys">
+         <p class="${correctKey === "a" ? "left" : "right"}">SÍ</p>
+         <p class="${correctKey === "a" ? "right" : "left"}">NO</p>
+       </div>
+   `,
+     correct_response: person.correct_response,
+   };
+ });
 
-// /* Verification trial */
-// let testVerification = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: jsPsych.timelineVariable("stimulus"),
-//   choices: ["a", "l"],
-//   data: {
-//     task: "response verification",
-//     correct_response: jsPsych.timelineVariable("correct_response"),
-//   },
-//   on_finish: function (data) {
-//     data.correct = jsPsych.pluginAPI.compareKeys(
-//       data.response,
-//       data.correct_response
-//     );
-//     data.correct_response_meaning =
-//       correctKey === data.correct_response ? "YES" : "NO";
-//   },
-// };
+ /* Verification trial */
+ let testVerification = {
+   type: jsPsychHtmlKeyboardResponse,
+   stimulus: jsPsych.timelineVariable("stimulus"),
+   choices: ["a", "l"],
+   data: {
+     task: "response verification",
+     correct_response: jsPsych.timelineVariable("correct_response"),
+   },
+   on_finish: function (data) {
+     data.correct = jsPsych.pluginAPI.compareKeys(
+       data.response,
+       data.correct_response
+     );
+     data.correct_response_meaning =
+       correctKey === data.correct_response ? "YES" : "NO";
+   },
+ };
 
-// /* Test procedure: fixation + verification */
-// let verificationProcedure = {
-//   timeline: [fixation, testVerification],
-//   timeline_variables: verificationStimuli,
-//   randomize_order: true, // Randomize object order
-// };
-// timeline.push(verificationProcedure);
+ /* Test procedure: fixation + verification */
+ let verificationProcedure = {
+   timeline: [fixation, testVerification],
+   timeline_variables: verificationStimuli,
+   randomize_order: true, // Randomize object order
+ };
+ timeline.push(verificationProcedure);
 
 
 /**************************************************************************************/
@@ -535,8 +531,8 @@ timeline.push(welcome);
 let instructionstetris = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
-    <p>Ahora jugará al Tetris durante aproximadamente 20 minutos.</p>
-    <p>En Tetris, hay piezas de diferentes formas que caen desde la parte superior de la pantalla. <br /> Su objetivo es moverlas y girarlas para que encajen y formen líneas horizontales completas. <br /> Cuando una línea se completa, desaparece. <br /> Si las piezas se acumulan hasta llegar a la parte superior, pierde.</p> <p>Controles:</p> <strong>Flecha izquierda:</strong> Mueve la pieza a la izquierda <br /> <strong>Flecha derecha:</strong> Mueve la pieza a la derecha <br /> <strong>Flecha arriba:</strong> Gira la pieza <br /> <strong>Flecha abajo:</strong> Acelera la caída <p>Cuando aparezca la pantalla del juego, haga clic en <strong>"Play"</strong> para iniciar.</p> <p>Si pierde, seleccione <strong>"Try again"</strong> para reiniciar. <br /> Jugará de esta manera hasta que se agote el tiempo.</p> <p>Pulse la barra espaciadora para comenzar.</p>
+    <p>Ahora jugará al Tetris durante aproximadamente 15 minutos.</p>
+    <p>En Tetris, hay piezas de diferentes formas que caen desde la parte superior de la pantalla. <br /> Su objetivo es moverlas y girarlas para que encajen y formen líneas horizontales completas. <br /> Cuando una línea se completa, desaparece. <br /> Si las piezas se acumulan hasta llegar a la parte superior, pierde.</p> <p>Controles:</p> <strong>Flecha izquierda:</strong> Mueve la pieza a la izquierda <br /> <strong>Flecha derecha:</strong> Mueve la pieza a la derecha <br /> <strong>Flecha arriba:</strong> Gira la pieza <br /> <strong>Flecha abajo:</strong> Acelera la caída <p>Cuando aparezca la pantalla del juego, haga clic en <strong>"Play"</strong> para iniciar.</p> <p>Si pierde, seleccione <strong>"Try again"</strong> para reiniciar. <br /> Jugará de esta manera hasta que se agote el tiempo.</p> <p>Pulsa la barra espaciadora para comenzar.</p>
   `,
   choices: [" "],
   post_trial_gap: 500,
@@ -561,11 +557,11 @@ timeline.push(tetris);
 let instructionsRecognition = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
-    <p>Ahora realizará la siguiente tarea:</p>
-    <p>Si ha visto antes la cara del personaje, pulse la tecla '${correctKey.toUpperCase()}' (presente).</p>
-    <p>Si no ha visto antes la cara del personaje, pulse la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
-    <p>De nuevo, le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
-    <p>Pulse la barra espaciadora para comenzar.</p>
+    <p>Ahora realizarás la siguiente tarea:</p>
+    <p>Si has visto antes este personaje, pulsa la tecla '${correctKey.toUpperCase()}' (PRESENTE).</p>
+    <p>Si no has visto antes este personaje, pulsa la tecla '${incorrectKey.toUpperCase()}' (NO PRESENTE).</p>
+    <p>De nuevo, te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+    <p>Pulsa la barra espaciadora para comenzar.</p>
    `,
   choices: [" "],
   post_trial_gap: 500,
@@ -615,31 +611,31 @@ timeline.push(testRecognitionProcedure);
 
 /**************************************************************************************/
 
-// const supabase = createClient(
-//   import.meta.env.VITE_SUPABASE_URL,
-//   import.meta.env.VITE_SUPABASE_API_KEY
-// );
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_API_KEY
+);
 
-// const TABLE_NAME = "experimento-personajes-aprend";
+const TABLE_NAME = "experimento-personajes-aprend";
 
-// async function saveData(data) {
-//   console.log(data);
-//   const { error } = await supabase.from(TABLE_NAME).insert({ data });
+async function saveData(data) {
+  console.log(data);
+  const { error } = await supabase.from(TABLE_NAME).insert({ data });
 
-//   return { error };
-// }
+  return { error };
+}
 
-// const saveDataBlock = {
-//   type: jsPsychCallFunction,
-//   func: function() {
-//     saveData(jsPsych.data.get())
-//   },
-//   timing_post_trial: 200
-// }
+const saveDataBlock = {
+  type: jsPsychCallFunction,
+  func: function() {
+    saveData(jsPsych.data.get())
+  },
+  timing_post_trial: 200
+}
 
-// timeline.push(saveDataBlock);
+timeline.push(saveDataBlock);
 
-// /**************************************************************************************/
+/**************************************************************************************/
 
 /* Goodbye message trial */
 let goodbye = {
