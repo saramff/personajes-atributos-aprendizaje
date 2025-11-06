@@ -9,7 +9,7 @@ const WOMEN_NO_OBJ_URL = `${IMG_URL}/mujeres-experimentales/sin-objeto`;
 export const menDataArray = [
   {
     objImg: `${MEN_URL}/hombre-1.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-1.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-1.jpg`,
     gender: "male",
     name: "",
     gender: "male",
@@ -20,7 +20,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-2.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-2.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-2.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene una bandera.",
@@ -30,7 +30,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-3.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-3.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-3.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene una pizza.",
@@ -40,7 +40,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-4.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-4.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-4.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene un refresco.",
@@ -50,7 +50,7 @@ export const menDataArray = [
   }, 
   {
     objImg: `${MEN_URL}/hombre-5.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-5.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-5.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene un chaleco salvavidas.",
@@ -60,7 +60,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-6.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-6.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-6.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene un pincel.",
@@ -70,7 +70,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-7.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-7.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-7.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene un plátano.",
@@ -80,7 +80,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-8.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-8.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-8.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene una moto.",
@@ -90,7 +90,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-9.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-9.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-9.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene una manzana.",
@@ -100,7 +100,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-10.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-10.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-10.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene un trofeo.",
@@ -110,7 +110,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-11.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-11.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-11.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene un oso de peluche.",
@@ -120,7 +120,7 @@ export const menDataArray = [
   },
   {
     objImg: `${MEN_URL}/hombre-12.jpg`,
-    noObjImg: `${MEN_NO_OBJ_URL}/hombre-12.png`,
+    noObjImg: `${MEN_NO_OBJ_URL}/hombre-12.jpg`,
     gender: "male",
     name: "",
     trueSentence: "tiene un micrófono.",
@@ -133,7 +133,7 @@ export const menDataArray = [
 export const womenDataArray = [
   {
     objImg: `${WOMEN_URL}/mujer-1.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-1.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-1.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene un perro.",
@@ -143,7 +143,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-2.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-2.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-2.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene una pelota.",
@@ -153,7 +153,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-3.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-3.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-3.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene un ordenador.",
@@ -163,7 +163,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-4.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-4.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-4.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene una maleta.",
@@ -173,7 +173,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-5.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-5.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-5.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene una vela.",
@@ -183,7 +183,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-6.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-6.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-6.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene una botella.",
@@ -193,7 +193,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-7.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-7.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-7.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene una guitarra.",
@@ -203,7 +203,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-8.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-8.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-8.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene flores.",
@@ -213,7 +213,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-9.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-9.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-9.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene una cometa.",
@@ -223,7 +223,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-10.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-10.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-10.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene palomitas.",
@@ -233,7 +233,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-11.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-11.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-11.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene una falda amarilla.",
@@ -243,7 +243,7 @@ export const womenDataArray = [
   },
   {
     objImg: `${WOMEN_URL}/mujer-12.jpg`,
-    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-12.png`,
+    noObjImg: `${WOMEN_NO_OBJ_URL}/mujer-12.jpg`,
     gender: "female",
     name: "",
     trueSentence: "tiene un periódico.",
