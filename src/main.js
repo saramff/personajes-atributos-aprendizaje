@@ -620,7 +620,7 @@ timeline.push(testRecognitionProcedure);
 //   import.meta.env.VITE_SUPABASE_API_KEY
 // );
 
-// const TABLE_NAME = "experimento-personajes-reduced";
+// const TABLE_NAME = "experimento-personajes-aprend";
 
 // async function saveData(data) {
 //   console.log(data);
