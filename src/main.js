@@ -466,13 +466,12 @@ type: jsPsychHtmlKeyboardResponse,
  let instructionsVerification = {
    type: jsPsychHtmlKeyboardResponse,
    stimulus: `
-     <p>Ahora, en esta tarea verás los personajes junto con una frase asociada.</p>
-     <p>Presiona '${incorrectKey.toUpperCase()}', si la frase es falsa, y '${correctKey.toUpperCase()}', si la frase es verdadera.</p>
-     </p></p>
-     <p>Vas a tener que recordar características de los personajes que has visto previamente.</p>
+     <p>Ahora, vas a tener que recordadr objetos o cosas que los personajes tenían o no tenían previamente.</p>
      <p>Por ejemplo, si en la pantalla aparece la imagen de Margarita y la frase dice 'Margarita tenía un bolígrafo', debes recordar si ese personaje SÍ tenía un bolígrafo o NO lo tenía.</p>
      </p></p>
-     <p>Te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+     <p>Presiona '${incorrectKey.toUpperCase()}', para decir que NO, y '${correctKey.toUpperCase()}', para decir que SÍ.</p>
+     </p></p>
+     <p><strong>Te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas</strong>.</p>
      <p>Cuando estés preparado, pulsa la barra espaciadora para empezar.</p>
     `,
    choices: [" "],
@@ -560,7 +559,7 @@ let instructionsRecognition = {
     <p>Ahora realizarás la siguiente tarea:</p>
     <p>Si has visto antes este personaje, pulsa la tecla '${correctKey.toUpperCase()}' (PRESENTE).</p>
     <p>Si no has visto antes este personaje, pulsa la tecla '${incorrectKey.toUpperCase()}' (NO PRESENTE).</p>
-    <p>De nuevo, te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+    <p>De nuevo, <strong>te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas</strong>.</p>
     <p>Pulsa la barra espaciadora para comenzar.</p>
    `,
   choices: [" "],
