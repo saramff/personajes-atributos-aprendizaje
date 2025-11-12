@@ -466,7 +466,7 @@ type: jsPsychHtmlKeyboardResponse,
  let instructionsVerification = {
    type: jsPsychHtmlKeyboardResponse,
    stimulus: `
-     <p>Ahora, vas a tener que recordadr objetos o cosas que los personajes tenían o no tenían previamente.</p>
+     <p>Ahora vas a tener que recordar objetos o cosas que los personajes tenían o no tenían previamente.</p>
      <p>Por ejemplo, si en la pantalla aparece la imagen de Margarita y la frase dice 'Margarita tenía un bolígrafo', debes recordar si ese personaje SÍ tenía un bolígrafo o NO lo tenía.</p>
      </p></p>
      <p>Presiona '${incorrectKey.toUpperCase()}', para decir que NO, y '${correctKey.toUpperCase()}', para decir que SÍ.</p>
