@@ -359,54 +359,47 @@ type: jsPsychHtmlKeyboardResponse,
 
  /**************************************************************************************/
 
- /* Instructions trial */
- let instructionsAttractive = {
-   type: jsPsychHtmlKeyboardResponse,
-   stimulus: `
-     <p>En esta tarea volverás a ver los mismos personajes.</p>  
-     <p>Esta vez, deberás decirnos cómo de atractivo te parece cada uno.</p>
-     <p>Para ello, responderás usando el ratón del ordenador dándole a cada personaje una puntuación del 1 al 5.</p>
+/* Instructions trial */
+let instructionsTiene = {
+type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+     <p>En este experimento se mostrarán automáticamente diferentes personajes uno tras otro.</p>  
+     <p>Por favor, presta mucha atención a la apariencia de cada personaje y al nombre que lo acompaña.</p>
      <p>Fíjate en todos los detalles.</p>
+     <p>Los personajes aparecerán automáticamente y no necesitas hacer nada más que estar atento.</p>
      <p>Cuando estés preparado, pulsa la barra espaciadora para empezar.</p>
    `,
    choices: [" "],
    post_trial_gap: 500,
  };
- timeline.push(instructionsAttractive);
+ timeline.push(instructionsTiene);
 
- /* Create timeline variables for each person */
- let attractiveStimuli = peopleDataArray.map((person) => {
+ /* Create stimuli array for image presentation */
+ let personTieneStimuli = peopleDataArray.map((person) => {
    return {
-     preamble: `
+     stimulus: `
        <img class="person-img" src="${person.objImg}">
-       <p class="person-name">¿Cuánto de ${person.gender === 'male' ? 'atractivo' : 'atractiva'} es ${person.name}?</p>
+       <p class="person-name">${person.name} ${person.tieneSentence}.</p>
      `,
-     prompt: "Siendo 1 NADA y 5 TOTALMENTE",
-     name: person.name
    };
  });
 
- /* Trial definition */
- var trialAttractive = {
-   type: jsPsychSurveyLikert,
-   preamble: jsPsych.timelineVariable("preamble"),
-   questions: [
-     {
-       prompt: jsPsych.timelineVariable("prompt"),
-       name: jsPsych.timelineVariable("name"),
-       labels: ["1", "2", "3", "4", "5"],
-       required: true
-     }
-   ]
+ /* Image presentation trial */
+ let testTiene = {
+   type: jsPsychHtmlKeyboardResponse,
+   stimulus: jsPsych.timelineVariable("stimulus"),
+   choices: "NO_KEYS", // Prevent key press
+   trial_duration: 5000, // Display each image for 5 second
+   post_trial_gap: 1000,
  };
 
- /* Test Attractive: image presentation + question */
- let testAttractive = {
-   timeline: [trialAttractive],
-   timeline_variables: attractiveStimuli,
-   randomize_order: true
+ /* Test procedure: fixation + image presentation */
+ let test_tiene_procedure = {
+   timeline: [fixation, testTiene],
+   timeline_variables: personTieneStimuli,
+   randomize_order: true, // Randomize image order
  };
- timeline.push(testAttractive);
+ timeline.push(test_tiene_procedure);
 
 
 /**************************************************************************************/
