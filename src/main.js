@@ -363,8 +363,8 @@ type: jsPsychHtmlKeyboardResponse,
 let instructionsTiene = {
 type: jsPsychHtmlKeyboardResponse,
   stimulus: `
-     <p>En este experimento se mostrarán automáticamente diferentes personajes uno tras otro.</p>  
-     <p>Por favor, presta mucha atención a la apariencia de cada personaje y al nombre que lo acompaña.</p>
+     <p>Ahora volverás a ver los personajes uno tras otro.</p>  
+     <p>En este caso, únicamente deberás prestar mucha atención al nombre y al objeto que acompaña a cada uno.</p>
      <p>Fíjate en todos los detalles.</p>
      <p>Los personajes aparecerán automáticamente y no necesitas hacer nada más que estar atento.</p>
      <p>Cuando estés preparado, pulsa la barra espaciadora para empezar.</p>
