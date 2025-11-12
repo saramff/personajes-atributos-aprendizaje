@@ -364,7 +364,7 @@ let instructionsTiene = {
 type: jsPsychHtmlKeyboardResponse,
   stimulus: `
      <p>Ahora volverás a ver los personajes uno tras otro.</p>  
-     <p>En este caso, únicamente deberás prestar mucha atención al nombre y al objeto que acompaña a cada uno.</p>
+     <p>En este caso, deberás prestar mucha atención al nombre y al objeto que acompaña a cada uno.</p>
      <p>Fíjate en todos los detalles.</p>
      <p>Los personajes aparecerán automáticamente y no necesitas hacer nada más que estar atento.</p>
      <p>Cuando estés preparado, pulsa la barra espaciadora para empezar.</p>
