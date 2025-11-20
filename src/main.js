@@ -426,7 +426,7 @@ type: jsPsychHtmlKeyboardResponse,
        <p class="person-name">¿Cuánta confianza te da ${person.name}?</p>
      `,
      prompt: "Siendo 1 NADA y 5 TOTALMENTE",
-     name: person.name
+     name: person.objImg
    };
  });
 
@@ -539,7 +539,7 @@ let tetris = {
   `,
   post_trial_gap: 500,
   choices: "NO_KEYS", // Prevent key press
-  trial_duration: 1,
+  trial_duration: 900000,
 };
 timeline.push(tetris);
 
